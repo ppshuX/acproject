@@ -9,3 +9,9 @@ def template1(request):
 
 def template2(request):
     return render(request, 'template2.html')
+
+def template3(request):
+    return render(request, 'template3.html')
+
+def template4(request):
+    return render(request, 'template4.html')

@@ -9,19 +9,20 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh; /* 增加高度，避免重叠 */
+    height: 100vh; /* 增加高度，避免重叠 */
 }
 
 /* 标题 */
 .tit {
     display: flex;
-    font-size: 80px;
+    font-size: 75px;
     align-items: center;
     justify-content: center;
     color: green;
     font-weight: bold;
     position: relative;
     margin-bottom: 40px; /* 让标题与按钮保持距离 */
+    letter-spacing: 8px;
 }
 
 /* 按钮容器 - 居中 & 避免重叠 */

@@ -75,9 +75,7 @@
 
 <body>
     <hr>
-    <div class="bck_title">
-        <div class="tit">算法模板</div>
-    </div>
+    <div class="tit">基础算法</div>
     <hr>
     <div class="card text-center">
         <div class="card-header">
@@ -322,7 +320,7 @@ vector<int> mul(vector<int> &A, int b)
     while (C.size() > 1 && C.back() == 0) C.pop_back();
 
     return C;
-}```
+}
             </code></pre>
             <br>
             <button type="button" class="btn btn-success btn-lg btn-lg-custom">
@@ -376,8 +374,8 @@ vector<int> div(vector<int> &A, int b, int &r)
             </p>
             <!-- 代码高亮 -->
             <pre><code class="language-c">
-                S[i] = a[1] + a[2] + ... a[i]
-                a[l] + ... + a[r] = S[r] - S[l - 1]
+S[i] = a[1] + a[2] + ... a[i]
+a[l] + ... + a[r] = S[r] - S[l - 1]
             </code></pre>
             <br>
             <button type="button" class="btn btn-success btn-lg btn-lg-custom">
@@ -385,6 +383,195 @@ vector<int> div(vector<int> &A, int b, int &r)
             </button>
         </div>
     </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            二维前缀和
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">二维前缀和</h5>
+            <p class="card-text">
+                下面是二维前缀和的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+S[i, j] = 第i行j列格子左上部分所有元素的和
+以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：
+S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/798/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            一维差分
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">一维差分</h5>
+            <p class="card-text">
+                下面是一维差分的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+给区间[l, r]中的每个数加上c：B[l] += c, B[r + 1] -= c
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/799/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            二维差分
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">二维差分</h5>
+            <p class="card-text">
+                下面是二维差分的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：
+S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/800/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            位运算
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">位运算</h5>
+            <p class="card-text">
+                下面是位运算的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+求n的第k位数字: n >> k & 1
+返回n的最后一位1：lowbit(n) = n & -n
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/803/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            双指针算法
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">双指针算法</h5>
+            <p class="card-text">
+                下面是双指针算法的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+for (int i = 0, j = 0; i < n; i ++ )
+{
+    while (j < i && check(i, j)) j ++ ;
+
+    // 具体问题的逻辑
+}
+常见问题分类：
+    (1) 对于一个序列，用两个指针维护一段区间
+    (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作
+
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/801/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            离散化
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">离散化</h5>
+            <p class="card-text">
+                下面是离散化算法的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+vector<int> alls; // 存储所有待离散化的值
+    sort(alls.begin(), alls.end()); // 将所有值排序
+    alls.erase(unique(alls.begin(), alls.end()), alls.end());   // 去掉重复元素
+    
+    // 二分求出x对应的离散化的值
+    int find(int x) // 找到第一个大于等于x的位置
+    {
+        int l = 0, r = alls.size() - 1;
+        while (l < r)
+        {
+            int mid = l + r >> 1;
+            if (alls[mid] >= x) r = mid;
+            else l = mid + 1;
+        }
+        return r + 1; // 映射到1, 2, ...n
+    }
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/804/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            区间合并
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">区间合并</h5>
+            <p class="card-text">
+                下面是区间合并算法的代码模板：
+            </p>
+            <!-- 代码高亮 -->
+            <pre><code class="language-c">
+// 将所有存在交集的区间合并
+void merge(vector<PII> &segs)
+{
+    vector<PII> res;
+
+    sort(segs.begin(), segs.end());
+
+    int st = -2e9, ed = -2e9;
+    for (auto seg : segs)
+        if (ed < seg.first)
+        {
+            if (st != -2e9) res.push_back({st, ed});
+            st = seg.first, ed = seg.second;
+        }
+        else ed = max(ed, seg.second);
+
+    if (st != -2e9) res.push_back({st, ed});
+
+    segs = res;
+}
+            </code></pre>
+            <br>
+            <button type="button" class="btn btn-success btn-lg btn-lg-custom">
+                <a href="https://www.acwing.com/problem/content/804/" style="color: green;">去做题</a>
+            </button>
+        </div>
+    </div>
+    <hr>
+
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/prism.js' %}"></script> <!-- 引入 Prism.js -->
 </body>

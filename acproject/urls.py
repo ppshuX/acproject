@@ -24,5 +24,6 @@ urlpatterns = [
     path('template2/', views.template2, name='template2'),
     path('template3/', views.template3, name='template3'),
     path('template4/', views.template4, name='template4'),
+    path('kob/', views.kob, name='kob'),
     path('admin/', admin.site.urls),
 ]

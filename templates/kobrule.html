@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+    <link rel="icon" href="https://cdn.acwing.com/media/article/image/2022/07/07/1_d7f3b93efd-kob.png">
+    <title>KOB 游戏说明</title>
+</head>
+
+<body>
+    <!-- 引入 SyntaxHighlighter 或其他样式库 -->
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: lightblue;
+            color: white;
+            font-size: 1.75rem;
+            height: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-body {
+            background-color: #f9f9f9;
+            padding: 30px;
+        }
+
+        .card-footer {
+            background-color: #f1f1f1;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        h5.card-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        p.card-text {
+            font-size: 1.25rem;
+            color: #666;
+        }
+
+        pre code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: Consolas, Monaco, 'Courier New', monospace;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+
+    <hr>
+    <div class="tit">KOB 游戏说明</div>
+    <hr>
+    <div class="card text-center">
+        <div class="card-header">
+        </div>
+        <div class="container my-4 d-flex">
+            <div class="card shadow-lg border-0 rounded-3 bg-light">
+                <div class="card-body p-4">
+                    <h2 class="card-title fw-bold text-primary mb-4">🎮 游 戏 规 则</h2>
+                    <br>
+
+                    <!-- 游戏说明 -->
+                    <p class="fs-5 text-secondary" style="line-height: 1.8;">
+                        本游戏为<strong class="text-dark">双人对战</strong>，每回合玩家同时做出决策控制自己的蛇。
+                        玩家在 <strong class="text-dark">13 × 14</strong> 的网格中各操纵一条蛇，
+                        只能通过自己编写的Ai代码，或者键盘输入（<strong class="text-dark">W、S、A、D</strong>）控制蛇头的走向 (上、下、左、右)。
+                    </p>
+
+                    <!-- 分割线 -->
+                    <hr>
+
+                    <!-- 蛇的初始位置 -->
+                    <div class="border-start ps-3 mb-4 text-start">
+                        <h3 class="fw-bold text-dark mb-2">📍 蛇 的 初 始 位 置：</h3>
+                        <br>
+                        <ul class="fs-5 text-secondary ps-3">
+                            <li>左下角 (地图位置 <strong>[13,1]</strong>)</li>
+                            <li>右上角 (地图位置 <strong>[1,14]</strong>)</li>
+                            <li>注意：看清楚自己是在左上角还是右下角，地图下面会显示自己的位置</li>
+                        </ul>
+                        <br>
+                        <p class="fs-5">初始长度为 <strong>1 格</strong>，前 10 回合每回合长度增加 1，从第 11 回合开始，每 3 回合长度增加 1。</p>
+                    </div>
+
+                    <!-- 胜负规则 -->
+                    <br>
+                    <div class="border-start ps-3 text-start">
+                        <h3 class="fw-bold text-dark mb-2">🏆 胜 负 规 则：</h3>
+                        <br>
+                        <ul class="fs-5 text-secondary ps-3">
+                            <li>蛇碰到网格外、障碍物、自己或对方的身体时死亡。</li>
+                            <li>非法操作会被判定为死亡。</li>
+                            <li>任意一条蛇死亡时，游戏结束。</li>
+                            <li>若两条蛇同时死亡，判定为<strong>平局</strong>。</li>
+                            <li>否则，<strong>先死的一方输</strong>，另一方胜。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 图片 -->
+                    <br>
+                    <div class="d-flex justify-content-center mt-4">
+                        <img src="https://cdn.acwing.com/media/article/image/2022/07/14/1_d3eb847803-snake.png"
+                            class="img-fluid rounded mb-3 shadow-sm" style="max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container my-4">
+            <div class="card shadow-lg border-0 rounded-3 bg-light">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center fw-bold text-primary mb-4">📌 玩 法 介 绍</h3>
+
+                    <div class="border-start ps-3 mb-4">
+                        <h5 class="fw-bold text-dark mb-2">📖 概述：</h5>
+                        <p class="fs-5 text-secondary">
+                            本游戏Ai部分目前只支持用户使用 <strong>Java</strong> 编写
+                            Bot 逻辑参加比赛，或者选择手动操作进行对战。
+                        </p>
+                    </div>
+
+                    <div class="border-start ps-3 mb-4">
+                        <h5 class="fw-bold text-dark mb-2">🤖 Bot 参赛：</h5>
+                        <p class="fs-5 text-secondary">
+                            每回合 Bot 接收一个 <code>int</code> 变量，表示己方蛇的移动方向。
+                            具体格式如下：
+                            <br>
+                            <strong>0、1、2、3 分别表示 上、右、下、左</strong>。
+                            <br>
+                            样例程序中提供了获取游戏对局信息的接口，你只需编写 <code>nextMove</code> 方法：
+                        </p>
+                        <pre><code class="language-java">
+    public Integer nextMove(String input) {
+    return 0;  
+    // 则 Bot 贪吃蛇将一直向上走
+}
+                    </code></pre>
+                    </div>
+
+                    <div class="border-start ps-3 mb-4">
+                        <h4 class="fw-bold text-dark mb-2">🕹️ 亲 自 出 马：</h4>
+                        <p class="fs-5 text-secondary">
+                            键盘输入 <strong>W、A、S、D</strong> 控制己方蛇的移动方向。
+                        </p>
+                        <li>注意：看清楚自己是在左上角还是右下角，地图下面会显示自己的位置</li>
+                    </div>
+                    <br>
+                    <hr>
+
+                    <div class="border-start ps-3 mb-4">
+                        <h4 class="fw-bold text-dark mb-2">一个简易的Ai代码</h4>
+                        <p class="fs-5 text-secondary">
+                            这里提供了一个可以自动判断上下左右是否有障碍物，选择合适方向的简易Bot，你可以基于本模板开发自己的Bot程序。
+                            <code>nextMove</code> 方法：
+                        </p>
+                        <pre><code class="language-java">
+package com.kob.botrunningsystem.utils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Bot implements java.util.function.Supplier<Integer> {
+    static class Cell {
+        public int x, y;
+        public Cell(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    private boolean check_tail_increasing(int step) {  // 检验当前回合，蛇的长度是否增加
+        if (step <= 10) return true;
+        return step % 3 == 1;
+    }
+
+    public List<Cell> getCells(int sx, int sy, String steps) {
+        steps = steps.substring(1, steps.length() - 1);
+        List<Cell> res = new ArrayList<>();
+
+        int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
+        int x = sx, y = sy;
+        int step = 0;
+        res.add(new Cell(x, y));
+        for (int i = 0; i < steps.length(); i ++ ) {
+            int d = steps.charAt(i) - '0';
+            x += dx[d];
+            y += dy[d];
+            res.add(new Cell(x, y));
+            if (!check_tail_increasing( ++ step)) {
+                res.remove(0);
+            }
+        }
+        return res;
+    }
+
+    public Integer nextMove(String input) {
+        String[] strs = input.split("#");
+        int[][] g = new int[13][14];
+        for (int i = 0, k = 0; i < 13; i ++ ) {
+            for (int j = 0; j < 14; j ++, k ++ ) {
+                if (strs[0].charAt(k) == '1') {
+                    g[i][j] = 1;
+                }
+            }
+        }
+
+        int aSx = Integer.parseInt(strs[1]), aSy = Integer.parseInt(strs[2]);
+        int bSx = Integer.parseInt(strs[4]), bSy = Integer.parseInt(strs[5]);
+
+        List<Cell> aCells = getCells(aSx, aSy, strs[3]);
+        List<Cell> bCells = getCells(bSx, bSy, strs[6]);
+
+        for (Cell c: aCells) g[c.x][c.y] = 1;
+        for (Cell c: bCells) g[c.x][c.y] = 1;
+
+        int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
+        for (int i = 0; i < 4; i ++ ) {
+            int x = aCells.get(aCells.size() - 1).x + dx[i];
+            int y = aCells.get(aCells.size() - 1).y + dy[i];
+            if (x >= 0 && x < 13 && y >= 0 && y < 14 && g[x][y] == 0) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    @Override
+    public Integer get() {
+        File file = new File("input.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            return nextMove(sc.next());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+                        </code></pre>
+                        <hr>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <img src="https://i.postimg.cc/zfkLPBrW/20250402105030.png"
+                            class="img-fluid rounded mb-3 shadow-sm" style="max-width: 100%;">
+                    </div>
+                    <hr>
+                    <p style="font-size: large;">选 择 自 己 创 建 的 Ai 出 战 即 可</p>
+                    <div class="d-flex justify-content-center mt-4">
+                        <img src="https://i.postimg.cc/2SQ3V63J/20250402105327.png"
+                            class="img-fluid rounded mb-3 shadow-sm" style="max-width: 100%;">
+                    </div>
+                </div>
+
+                <div class="border-start ps-3 mb-4">
+                    <h4 class="fw-bold text-dark mb-2">🕹️ 游 戏 结 果</h4>
+                    <p class="fs-5 text-secondary" style="font-size: large;">
+                        游戏有三个结果：胜利（Win），失败（Lose），平局（Draw），胜利会增加自己的天梯积分，失败反之，平局不变。
+                    </p>
+                    <hr>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+        <br>
+</body>
+
+</html>

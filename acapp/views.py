@@ -15,3 +15,6 @@ def template3(request):
 
 def template4(request):
     return render(request, 'template4.html')
+
+def kob(request):
+    return render(request, 'kobrule.html')

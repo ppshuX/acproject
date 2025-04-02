@@ -191,12 +191,12 @@
                     <hr>
 
                     <div class="border-start ps-3 mb-4">
-                        <h4 class="fw-bold text-dark mb-2">一个简易的Ai代码</h4>
+                        <h4 class="fw-bold text-dark mb-2">一 个 简 易 的 Ai 代 码 </h4>
                         <p class="fs-5 text-secondary">
                             这里提供了一个可以自动判断上下左右是否有障碍物，选择合适方向的简易Bot，你可以基于本模板开发自己的Bot程序。
                             <code>nextMove</code> 方法：
                         </p>
-                        <pre><code class="language-java">
+                        <pre><code class="language-c">
 package com.kob.botrunningsystem.utils;
 
 import java.io.File;
@@ -205,8 +205,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//测试用
-public class Bot implements java.util.function.Supplier<Integer> {
+public class Bot implements java.util.function.Supplier&lt;Integer&gt; {
     static class Cell {//蛇身体（单格）
         public int x, y;
 
@@ -221,9 +220,9 @@ public class Bot implements java.util.function.Supplier<Integer> {
         return step % 3 == 1;
     }
 
-    public List<Cell> getCells(int sx, int sy, String steps) {//获取游戏中两条蛇的身体位置
+    public List&lt;Cell&gt; getCells(int sx, int sy, String steps) {//获取游戏中两条蛇的身体位置
         steps=steps.substring(1,steps.length()-1);
-        List<Cell> res = new ArrayList<>();
+        List&lt;Cell&gt; res = new ArrayList<>();
 
         int[] dx = {-1, 0, 1, 0}, dy = {0, 1, 0, -1};
         int x = sx, y = sy;
@@ -255,8 +254,8 @@ public class Bot implements java.util.function.Supplier<Integer> {
         int aSx = Integer.parseInt(strs[1]), aSy = Integer.parseInt(strs[2]);
         int bSx = Integer.parseInt(strs[4]), bSy = Integer.parseInt(strs[5]);
 
-        List<Cell> aCells = getCells(aSx, aSy, strs[3]);
-        List<Cell> bCells = getCells(bSx, bSy, strs[6]);
+        List&lt;Cell&gt; aCells = getCells(aSx, aSy, strs[3]);
+        List&lt;Cell&gt; bCells = getCells(bSx, bSy, strs[6]);
 
         for (Cell c : aCells) g[c.x][c.y] = 1;//将地图中两条蛇身体的位置标记成障碍物
         for (Cell c : bCells) g[c.x][c.y] = 1;
